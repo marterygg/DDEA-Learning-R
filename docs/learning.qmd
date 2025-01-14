@@ -1,0 +1,38 @@
+---
+title: "Reproducible document"
+author: "Marte Opseth Rygg"
+format: html
+---
+
+## Basics of R
+
+```{r}
+1 + 1
+```
+
+## Setup code chunk 
+
+```{r setup}
+library(tidyverse)
+```
+
+## About me 
+
+- Name: Marte Opseth Rygg
+- Affiliation: Steno Dibaetes Center Copenhagen 
+
+I am **Norwegian** and love to walk in the *mountains*.
+
+## Simle code 
+
+```{r}
+3*3
+```
+
+
+
+
+
+
+
+
