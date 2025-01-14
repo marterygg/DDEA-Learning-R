@@ -1,6 +1,4 @@
-TODO: Add more to the title of your project here
-
-# DDEA Learning R:
+# LearningR:Intro to git
 
 TODO: Give a brief description of what your project is about
 
