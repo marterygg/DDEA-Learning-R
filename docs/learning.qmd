@@ -13,6 +13,8 @@ format: html
 ## Setup code chunk 
 
 ```{r setup}
+#| message: false 
+#| warning: false 
 library(tidyverse)
 post_meal_data <- read.csv2(here::here("data/post-meal-insulin.csv"))
 ```
@@ -45,6 +47,7 @@ I am **Norwegian** and love to walk in the *mountains*.
 ## Testing for Git 
 
 Random words. 
+
 
 
 
