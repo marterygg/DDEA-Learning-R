@@ -126,7 +126,46 @@ ggplot(post_meal_data, aes(x = glykemi)) +
 #| fig-cap: "Scatterplot"
 #| label: fig-bmi-auc-pg
 ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
-  geom_point() + # What type of graph do I want 
-  geom_smooth() 
+  geom_point() + # What type of graph do I want
+  geom_smooth()
 ```
 
+```{r}
+small_post_meal_data <- select(post_meal_data, id, Age, BMI, Group, auc_pg, auc_ins, glykemi)
+```
+
+
+```{r}
+tidier_post_meal_data <- small_post_meal_data |>
+  rename(
+    auc_glucose = auc_pg,
+    auc_insulin = auc_ins
+  ) |>
+  filter(glykemi == 0) |>
+  select(-glykemi)
+tidier_post_meal_data
+```
+```{r}
+tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == " CTR", "Control", "First-degree relative")
+  )
+```
+
+## Practice with filter and mutate
+
+```{r}
+post_meal_data |>
+  filter(BMI >= 20 & BMI <= 40 & Group == "FDR")
+```
+
+16 people
+
+```{r}
+post_meal_data |>
+  mutate(
+    percent_body_fat = (Fat.mass.DXA / Weight) * 100
+  ) |>
+  filter(percent_body_fat > 30)
+```
