@@ -258,3 +258,24 @@ post_meal_data |>
   scale_colour_viridis_c(option = "magma")
 ```
 
+## Calculating summary statistics 
+
+```{r}
+tidied_post_meal_data %>%
+  summarise(
+    max_bmi = max(BMI),
+    min_BMI = min(BMI)
+  )
+```
+
+## Summarise with splitting 
+
+```{r}
+tidied_post_meal_data %>%
+  group_by(Group) %>%
+  summarise(
+    mean_age = mean(Age),
+    mean_BMI = mean(BMI)
+  ) %>%
+  ungroup()
+```
